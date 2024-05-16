@@ -6,3 +6,6 @@ DYLIB_FLAGS = -shared -fPIC
 
 kar-dynamic:
 	$(CC) kar/src/kar.c -o $(DYLIB_PRE)kar.$(DYLIB_EXT) $(CFLAGS) $(DYLIB_FLAGS)
+
+kar-cli: kar-dynamic
+	$(CC) cli/src/main.c -o karc $(CFLAGS) -L. -lkar
